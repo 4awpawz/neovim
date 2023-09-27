@@ -212,11 +212,21 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = true,
-        theme = 'onedark',
+        theme = 'tokyonight',
         component_separators = '|',
         section_separators = '',
       },
     },
+  },
+
+  {
+    'folke/todo-comments.nvim',
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+    }
   },
 
   {
@@ -326,6 +336,7 @@ vim.o.termguicolors = true
 vim.keymap.set('n', '<leader>t', ':NvimTreeToggle<CR>')
 vim.keymap.set('n', '<leader>r', ':NvimTreeRefresh<CR>')
 vim.keymap.set('n', '<leader>l', ':NvimTreeFindFile<CR>')
+
 -- Auto close NVim Tree
 vim.api.nvim_create_autocmd("QuitPre", {
   callback = function()
@@ -623,6 +634,10 @@ vim.opt.winbar = '%f';  -- show file name
 vim.opt.laststatus = 3; -- a single status bar for all splits
 vim.api.nvim_set_hl(0, 'WinSeparator', { fg = "#888888", bg = "#ffffff" })
 vim.keymap.set('n', 'gq', ':bd<CR>')
+vim.keymap.set('i', 'jj', '<ESC>')
+vim.keymap.set('n', 'bn', ':bnext<CR>')
+vim.keymap.set('n', 'bp', ':bprev<CR>')
+vim.keymap.set('n', '<leader>s', ':setlocal spell spelllang=en_us<CR>')
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

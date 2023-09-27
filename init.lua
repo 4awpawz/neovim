@@ -640,7 +640,7 @@ cmp.setup {
 vim.opt.winbar = '%f';  -- show file name
 vim.opt.laststatus = 3; -- a single status bar for all splits
 vim.api.nvim_set_hl(0, 'WinSeparator', { fg = "#888888", bg = "#ffffff" })
-vim.keymap.set('n', 'gq', ':bd<CR>')
+vim.keymap.set('n', 'gq', ':q<CR>')
 vim.keymap.set('i', 'jj', '<ESC>')
 vim.keymap.set('n', 'bn', ':bnext<CR>')
 vim.keymap.set('n', 'bp', ':bprev<CR>')

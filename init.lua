@@ -639,12 +639,22 @@ cmp.setup {
 -- General Settings
 vim.opt.winbar = '%f';  -- show file name
 vim.opt.laststatus = 3; -- a single status bar for all splits
-vim.api.nvim_set_hl(0, 'WinSeparator', { fg = "#888888", bg = "#ffffff" })
-vim.keymap.set('n', 'gq', ':q<CR>')
+vim.api.nvim_set_hl(0, 'WinSeparator', { fg = "#888888", bg = "#000000" })
 vim.keymap.set('i', 'jj', '<ESC>')
 vim.keymap.set('n', 'bn', ':bnext<CR>')
 vim.keymap.set('n', 'bp', ':bprev<CR>')
+vim.keymap.set('n', 'bd', ':bd<CR>')
+vim.keymap.set('n', 'ba', ':%bd<CR>')
+vim.keymap.set('n', 'gq', ':q!<CR>')
 vim.keymap.set('n', '<leader>s', ':setlocal spell spelllang=en_us<CR>')
+vim.keymap.set('n', '<leader>g', ':G<CR>')
+vim.keymap.set('n', '<leader>gl', ':G log --decorate<CR>')
+vim.keymap.set('n', '<leader>gc', ':G commit<CR>')
+vim.keymap.set('n', '<leader>gi', ':G rebase -i')
+vim.keymap.set('n', '<leader>gb', ':G branch --all')
+vim.keymap.set('n', '<leader>gbd', ':G branch --delete')
+vim.keymap.set('n', '<leader>go', ':G checkout')
+vim.keymap.set('n', '<leader>gcb', ':G checkout --branch')
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

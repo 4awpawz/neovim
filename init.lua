@@ -163,6 +163,13 @@ require('lazy').setup({
     end,
   },
 
+  -- My Plugins
+
+  {
+    "iamcco/markdown-preview.nvim",
+    build = function() vim.fn["mkdp#util#install"]() end,
+  },
+
   {
     "windwp/nvim-autopairs",
     -- Optional dependency

@@ -1,2 +1,4 @@
 baseURL
 ssg's
+keymap
+lualine

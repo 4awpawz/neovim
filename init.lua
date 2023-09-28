@@ -166,6 +166,10 @@ require('lazy').setup({
   -- My Plugins
 
   {
+    "tpope/vim-unimpaired"
+  },
+
+  {
     "iamcco/markdown-preview.nvim",
     build = function() vim.fn["mkdp#util#install"]() end,
   },
@@ -222,6 +226,18 @@ require('lazy').setup({
         theme = 'tokyonight',
         component_separators = '|',
         section_separators = '',
+      },
+      sections = {
+        lualine_c = {
+          'filename',
+          function()
+            if vim.wo.spell then
+              return '[Spell Check On]'
+            else
+              return ''
+            end
+          end,
+        },
       },
     },
   },
@@ -636,8 +652,14 @@ cmp.setup {
   },
 }
 
+local function toggleSpell()
+  vim.wo.spell = not vim.wo.spell
+end
+
 -- General Settings
-vim.opt.winbar = '%f';  -- show file name
+vim.opt.winbar = '%f'; -- show file name
+vim.opt.spelllang = 'en_us'
+vim.opt.spell = false
 vim.opt.laststatus = 3; -- a single status bar for all splits
 vim.api.nvim_set_hl(0, 'WinSeparator', { fg = "#888888", bg = "#000000" })
 vim.keymap.set('i', 'jj', '<ESC>')
@@ -646,7 +668,7 @@ vim.keymap.set('n', 'bp', ':bprev<CR>')
 vim.keymap.set('n', 'bd', ':bd<CR>')
 vim.keymap.set('n', 'ba', ':%bd<CR>')
 vim.keymap.set('n', 'gq', ':q!<CR>')
-vim.keymap.set('n', '<leader>s', ':setlocal spell spelllang=en_us<CR>')
+vim.keymap.set('n', '<A-s>', toggleSpell)
 vim.keymap.set('n', '<leader>g', ':G<CR>')
 vim.keymap.set('n', '<leader>gl', ':G log --decorate<CR>')
 vim.keymap.set('n', '<leader>gc', ':G commit<CR>')

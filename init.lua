@@ -564,23 +564,25 @@ end
 --  If you want to override the default filetypes that your language server will attach to you can
 --  define the property 'filetypes' to the map in question.
 local servers = {
-  -- clangd = {},
-  gopls = {},
-  -- pyright = {},
-  -- rust_analyzer = {},
-  tsserver = {},
-  html = { filetypes = { 'html', 'twig', 'hbs' } },
-
-  lua_ls = {
-    Lua = {
-      workspace = { checkThirdParty = false },
-      telemetry = { enable = false },
+      -- clangd = {},
+      gopls = {},
+      -- pyright = {},
+      -- rust_analyzer = {},
+      tsserver = {},
+      html = { filetypes = { 'html', 'twig', 'hbs' } },
+      lua_ls = {
+        Lua = {
+          workspace = { checkThirdParty = false },
+          telemetry = { enable = false },
+        },
+      },
+      emmet_ls = {
+        filetypes = { 'html', 'markdown', 'typescriptreact', 'javascriptreact', 'css', 'sass', 'scss', 'less' },
+      },
     },
-  },
-}
 
--- Setup neovim lua configuration
-require('neodev').setup()
+    -- Setup neovim lua configuration
+    require('neodev').setup()
 
 -- nvim-cmp supports additional completion capabilities, so broadcast that to servers
 local capabilities = vim.lsp.protocol.make_client_capabilities()
@@ -661,6 +663,7 @@ vim.opt.winbar = '%f'; -- show file name
 vim.opt.spelllang = 'en_us'
 vim.opt.spell = false
 vim.opt.laststatus = 3; -- a single status bar for all splits
+vim.opt.linebreak = true;
 vim.api.nvim_set_hl(0, 'WinSeparator', { fg = "#888888", bg = "#000000" })
 vim.keymap.set('i', 'jj', '<ESC>')
 vim.keymap.set('n', 'bn', ':bnext<CR>')

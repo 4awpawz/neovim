@@ -166,6 +166,10 @@ require('lazy').setup({
   -- My Plugins
 
   {
+    "tpope/vim-repeat"
+  },
+
+  {
     "tpope/vim-unimpaired"
   },
 

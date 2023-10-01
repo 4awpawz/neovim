@@ -110,7 +110,7 @@ require('lazy').setup({
   },
 
   -- Useful plugin to show you pending keybinds.
-  { 'folke/which-key.nvim',  opts = {} },
+  -- { 'folke/which-key.nvim',  opts = {} },
   {
     -- Adds git related signs to the gutter, as well as utilities for managing changes
     'lewis6991/gitsigns.nvim',
@@ -268,7 +268,7 @@ require('lazy').setup({
   },
 
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
+  { 'numToStr/Comment.nvim',  opts = {} },
 
   -- Fuzzy Finder (files, lsp, etc)
   {
@@ -349,7 +349,7 @@ vim.wo.signcolumn = 'yes'
 
 -- Decrease update time
 vim.o.updatetime = 250
-vim.o.timeoutlen = 300
+vim.o.timeoutlen = 600
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
@@ -669,6 +669,9 @@ vim.opt.spell = false
 vim.opt.laststatus = 3; -- a single status bar for all splits
 vim.opt.linebreak = true;
 vim.api.nvim_set_hl(0, 'WinSeparator', { fg = "#888888", bg = "#000000" })
+
+-- My Keymmaps
+
 vim.keymap.set('i', 'jj', '<ESC>')
 vim.keymap.set('n', 'bn', ':bnext<CR>')
 vim.keymap.set('n', 'bp', ':bprev<CR>')
@@ -676,6 +679,7 @@ vim.keymap.set('n', 'bd', ':bd<CR>')
 vim.keymap.set('n', 'ba', ':%bd<CR>')
 vim.keymap.set('n', 'gq', ':q!<CR>')
 vim.keymap.set('n', '<A-s>', toggleSpell)
+-- Git stuff
 vim.keymap.set('n', '<leader>g', ':G<CR>')
 vim.keymap.set('n', '<leader>gl', ':G log --decorate<CR>')
 vim.keymap.set('n', '<leader>gc', ':G commit<CR>')
@@ -685,5 +689,6 @@ vim.keymap.set('n', '<leader>gbd', ':G branch --delete')
 vim.keymap.set('n', '<leader>go', ':G checkout')
 vim.keymap.set('n', '<leader>gcb', ':G checkout --branch')
 
+--
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

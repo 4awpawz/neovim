@@ -576,10 +576,7 @@ local servers = {
           telemetry = { enable = false },
         },
       },
-      emmet_language_server = {
-        filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "svelte", "pug",
-          "typescriptreact", "vue" },
-      },
+      emmet_language_server = {},
     },
 
     -- Setup neovim lua configuration
@@ -668,6 +665,10 @@ vim.opt.spell = false
 vim.opt.laststatus = 3; -- a single status bar for all splits
 vim.opt.linebreak = true;
 vim.api.nvim_set_hl(0, 'WinSeparator', { fg = "#888888", bg = "#000000" })
+vim.opt.autoindent = true;
+vim.opt.expandtab = true;
+vim.opt.tabstop = 4;
+vim.opt.shiftwidth = 4;
 
 -- My Keymmaps
 

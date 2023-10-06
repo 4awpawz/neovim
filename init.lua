@@ -74,7 +74,6 @@ require('lazy').setup({
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
   -- NOTE: This is where your plugins related to LSP can be installed.
-  -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
   {
     -- LSP Configuration & Plugins
@@ -180,6 +179,7 @@ require('lazy').setup({
 
   {
     "windwp/nvim-autopairs",
+    -- NOTE: Requires further configuration to support more of its features.
     -- Optional dependency
     dependencies = { 'hrsh7th/nvim-cmp' },
     config = function()

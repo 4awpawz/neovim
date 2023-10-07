@@ -158,6 +158,7 @@ require('lazy').setup({
     priority = 1000,
     opts = {},
     config = function()
+      require("tokyonight").setup({ style = "moon" })
       vim.cmd.colorscheme 'tokyonight'
     end,
   },
@@ -255,12 +256,8 @@ require('lazy').setup({
   {
     -- Add indentation guides even on blank lines
     'lukas-reineke/indent-blankline.nvim',
-    -- Enable `lukas-reineke/indent-blankline.nvim`
-    -- See `:help indent_blankline.txt`
-    opts = {
-      char = '┊',
-      show_trailing_blankline_indent = false,
-    },
+    main = "ibl",
+    opts = {}
   },
 
   -- "gc" to comment visual regions/lines
@@ -669,6 +666,7 @@ vim.opt.autoindent = true;
 vim.opt.expandtab = true;
 vim.opt.tabstop = 4;
 vim.opt.shiftwidth = 4;
+vim.opt.cursorline = true;
 
 -- My Keymmaps
 

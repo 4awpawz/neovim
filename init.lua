@@ -672,11 +672,20 @@ vim.opt.cursorline = true;
 -- My Keymmaps
 
 vim.keymap.set('i', 'jj', '<ESC>')
-vim.keymap.set('n', 'bn', ':bnext<CR>')
-vim.keymap.set('n', 'bp', ':bprev<CR>')
-vim.keymap.set('n', 'bd', ':bd<CR>')
-vim.keymap.set('n', 'ba', ':%bd<CR>')
+-- Buffer Nav
+vim.keymap.set('n', 'gbn', ':bnext<CR>')
+vim.keymap.set('n', 'gbp', ':bprev<CR>')
+vim.keymap.set('n', 'gbd', ':bd<CR>')
+vim.keymap.set('n', 'gba', ':%bd<CR>')
+-- Window/Split Nav
 vim.keymap.set('n', 'gq', ':q!<CR>')
+vim.keymap.set('n', 'gwo', '<C-w>o')
+vim.keymap.set('n', 'gwn', '<C-w>w')
+vim.keymap.set('n', 'gwl', '<C-w>l')
+vim.keymap.set('n', 'gwh', '<C-w>h')
+vim.keymap.set('n', 'gwk', '<C-w>k')
+vim.keymap.set('n', 'gwj', '<C-w>j')
+-- Spell
 vim.keymap.set('n', '<A-s>', toggleSpell)
 -- Git stuff
 vim.keymap.set('n', '<leader>g', ':G<CR>')

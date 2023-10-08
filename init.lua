@@ -659,7 +659,7 @@ end
 vim.opt.winbar = '%f'; -- show file name
 vim.opt.spelllang = 'en_us'
 vim.opt.spell = false
-vim.api.nvim_set_hl(0, 'SpellBad', { fg = "white", bg = "red" })
+vim.api.nvim_set_hl(0, 'SpellBad', { fg = "#ff0000", bg = "#ffffff", undercurl = true })
 vim.opt.laststatus = 3; -- a single status bar for all splits
 vim.opt.linebreak = true;
 vim.api.nvim_set_hl(0, 'WinSeparator', { fg = "#888888", bg = "#000000" })

@@ -158,7 +158,7 @@ require('lazy').setup({
     priority = 1000,
     opts = {},
     config = function()
-      require("tokyonight").setup({ style = "moon", transparent = true })
+      require("tokyonight").setup({ style = "night", transparent = true })
       vim.cmd.colorscheme 'tokyonight'
     end,
   },

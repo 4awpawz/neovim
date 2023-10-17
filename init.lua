@@ -661,14 +661,14 @@ vim.opt.winbar = '%f'; -- show file name
 vim.opt.spelllang = 'en_us'
 vim.opt.spell = false
 vim.api.nvim_set_hl(0, 'SpellBad', { fg = "#ff0000", bg = "#ffffff", undercurl = true })
-vim.opt.laststatus = 3; -- a single status bar for all splits
-vim.opt.linebreak = true;
 vim.api.nvim_set_hl(0, 'WinSeparator', { fg = "#888888", bg = "#000000" })
-vim.opt.autoindent = true;
-vim.opt.expandtab = true;
-vim.opt.tabstop = 4;
-vim.opt.shiftwidth = 4;
-vim.opt.cursorline = true;
+vim.opt.laststatus = 3 -- a single status bar for all splits
+vim.opt.linebreak = true
+vim.opt.autoindent = true
+vim.opt.expandtab = true
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.cursorline = true
 
 -- My Keymmaps
 
@@ -679,7 +679,7 @@ vim.keymap.set('n', 'gbp', ':bprev<CR>')
 vim.keymap.set('n', 'gbd', ':bd<CR>')
 vim.keymap.set('n', 'gba', ':%bd<CR>')
 -- Window/Split Nav
-vim.keymap.set('n', 'gq', ':q!<CR>')
+vim.keymap.set('n', 'gq', ':q<CR>')
 vim.keymap.set('n', 'gwo', '<C-w>o')
 vim.keymap.set('n', 'gwn', '<C-w>w')
 vim.keymap.set('n', 'gwl', '<C-w>l')

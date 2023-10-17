@@ -164,6 +164,9 @@ require('lazy').setup({
   },
 
   -- My Plugins
+  {
+    'jghauser/follow-md-links.nvim'
+  },
 
   {
     "tpope/vim-repeat"
@@ -697,6 +700,8 @@ vim.keymap.set('n', '<leader>gb', ':G branch --all')
 vim.keymap.set('n', '<leader>gbd', ':G branch --delete')
 vim.keymap.set('n', '<leader>go', ':G checkout')
 vim.keymap.set('n', '<leader>gcb', ':G checkout --branch')
+-- follow-md-links.nvim keybinding to go back to the previous file with backspace
+vim.keymap.set('n', '<bs>', ':edit #<cr>', { silent = true })
 
 --
 -- The line beneath this is called `modeline`. See `:help modeline`

@@ -656,6 +656,7 @@ local function toggleSpell()
 end
 
 -- General Settings
+vim.cmd.packadd('cfilter')
 vim.opt.winbar = '%f'; -- show file name
 vim.opt.spelllang = 'en_us'
 vim.opt.spell = false

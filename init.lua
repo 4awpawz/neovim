@@ -178,7 +178,13 @@ require('lazy').setup({
 
   {
     "iamcco/markdown-preview.nvim",
+    cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+    lazy = true,
+    ft = { "markdown" },
     build = function() vim.fn["mkdp#util#install"]() end,
+    config = function()
+      vim.g.mkdp_theme = 'light'
+    end
   },
 
   {
@@ -576,7 +582,7 @@ local servers = {
       telemetry = { enable = false },
     },
   },
-  emmet_language_server = {},
+  emmet_language_server = { filetypes = { 'html', 'markdown' } },
 }
 
 -- Setup neovim lua configuration

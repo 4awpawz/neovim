@@ -706,6 +706,10 @@ vim.keymap.set('n', '<leader>gb', ':G branch --all')
 vim.keymap.set('n', '<leader>gbd', ':G branch --delete')
 vim.keymap.set('n', '<leader>go', ':G checkout')
 vim.keymap.set('n', '<leader>gcb', ':G checkout --branch')
+-- Markdown Preview
+vim.keymap.set('n', 'mp', ':MarkdownPreview<CR>')
+vim.keymap.set('n', 'mt', ':MarkdownPreviewToggle<CR>')
+vim.keymap.set('n', 'ms', ':MarkdownPreviewStop<CR>')
 -- follow-md-links.nvim keybinding to go back to the previous file with backspace
 vim.keymap.set('n', '<bs>', ':edit #<cr>', { silent = true })
 

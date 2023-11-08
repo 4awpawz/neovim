@@ -165,19 +165,33 @@ require('lazy').setup({
 
   -- My Plugins
   {
+    'NvChad/nvim-colorizer.lua',
+    config = function()
+      require 'colorizer'.setup({
+        user_default_options = {
+          css = true,
+        }
+      })
+    end,
+  },
+  {
+    -- color picker
+    'uga-rosa/ccc.nvim'
+  },
+  {
     'jghauser/follow-md-links.nvim'
   },
 
   {
-    "tpope/vim-repeat"
+    'tpope/vim-repeat'
   },
 
   {
-    "tpope/vim-unimpaired"
+    'tpope/vim-unimpaired'
   },
 
   {
-    "iamcco/markdown-preview.nvim",
+    'iamcco/markdown-preview.nvim',
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
     lazy = true,
     ft = { "markdown" },
@@ -188,7 +202,7 @@ require('lazy').setup({
   },
 
   {
-    "windwp/nvim-autopairs",
+    'windwp/nvim-autopairs',
     -- NOTE: Requires further configuration to support more of its features.
     -- Optional dependency
     dependencies = { 'hrsh7th/nvim-cmp' },
@@ -205,7 +219,7 @@ require('lazy').setup({
   },
 
   {
-    "nvim-tree/nvim-tree.lua",
+    'nvim-tree/nvim-tree.lua',
     version = "*",
     lazy = false,
     dependencies = {
@@ -697,6 +711,8 @@ vim.keymap.set('n', 'gwk', '<C-w>k')
 vim.keymap.set('n', 'gwj', '<C-w>j')
 -- Spell
 vim.keymap.set('n', '<A-s>', toggleSpell)
+-- Toggle Color Picker
+vim.keymap.set('n', '<M-c>', ':CccPick<CR>')
 -- Git stuff
 vim.keymap.set('n', '<leader>g', ':G<CR>')
 vim.keymap.set('n', '<leader>gl', ':G log --decorate<CR>')

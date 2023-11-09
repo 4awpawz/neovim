@@ -376,9 +376,9 @@ vim.o.termguicolors = true
 -- [[ Basic Keymaps ]]
 
 -- NVim Tree
-vim.keymap.set('n', '<leader>t', ':NvimTreeToggle<CR>')
-vim.keymap.set('n', '<leader>r', ':NvimTreeRefresh<CR>')
-vim.keymap.set('n', '<leader>l', ':NvimTreeFindFile<CR>')
+vim.keymap.set('n', '<leader>t', ':NvimTreeToggle<CR>', { silent = true })
+vim.keymap.set('n', '<leader>r', ':NvimTreeRefresh<CR>', { silent = true })
+vim.keymap.set('n', '<leader>l', ':NvimTreeFindFile<CR>', { silent = true })
 
 -- Auto close NVim Tree
 vim.api.nvim_create_autocmd("QuitPre", {
@@ -697,37 +697,38 @@ vim.opt.cursorline = true
 
 vim.keymap.set('i', 'jj', '<ESC>')
 -- Buffer Nav
-vim.keymap.set('n', 'gbn', ':bnext<CR>')
-vim.keymap.set('n', 'gbp', ':bprev<CR>')
-vim.keymap.set('n', 'gbd', ':bd<CR>')
-vim.keymap.set('n', 'gba', ':%bd<CR>')
+vim.keymap.set('n', '<M-bs>', ':bn<cr>', { silent = true })
+-- vim.keymap.set('n', 'gbn', ':bnext<CR>')
+vim.keymap.set('n', 'gbp', ':bprev<CR>', { silent = true })
+vim.keymap.set('n', 'gbd', ':bd<CR>', { silent = true })
+vim.keymap.set('n', 'gba', ':%bd<CR>', { silent = true })
+-- follow-md-links.nvim keybinding to go back to the previous file with backspace
+vim.keymap.set('n', '<bs>', ':edit #<cr>', { silent = true })
 -- Window/Split Nav
-vim.keymap.set('n', 'gq', ':q<CR>')
-vim.keymap.set('n', 'gwo', '<C-w>o')
-vim.keymap.set('n', 'gwn', '<C-w>w')
-vim.keymap.set('n', 'gwl', '<C-w>l')
-vim.keymap.set('n', 'gwh', '<C-w>h')
-vim.keymap.set('n', 'gwk', '<C-w>k')
-vim.keymap.set('n', 'gwj', '<C-w>j')
+vim.keymap.set('n', 'gq', ':q<CR>', { silent = true })
+vim.keymap.set('n', 'gwo', '<C-w>o', { silent = true })
+vim.keymap.set('n', 'gwn', '<C-w>w', { silent = true })
+vim.keymap.set('n', 'gwl', '<C-w>l', { silent = true })
+vim.keymap.set('n', 'gwh', '<C-w>h', { silent = true })
+vim.keymap.set('n', 'gwk', '<C-w>k', { silent = true })
+vim.keymap.set('n', 'gwj', '<C-w>j', { silent = true })
 -- Spell
-vim.keymap.set('n', '<A-s>', toggleSpell)
+vim.keymap.set('n', '<A-s>', toggleSpell, { silent = true })
 -- Toggle Color Picker
-vim.keymap.set('n', '<M-c>', ':CccPick<CR>')
+vim.keymap.set('n', '<M-c>', ':CccPick<CR>', { silent = true })
 -- Git stuff
-vim.keymap.set('n', '<leader>g', ':G<CR>')
-vim.keymap.set('n', '<leader>gl', ':G log --decorate<CR>')
-vim.keymap.set('n', '<leader>gc', ':G commit<CR>')
-vim.keymap.set('n', '<leader>gi', ':G rebase -i')
-vim.keymap.set('n', '<leader>gb', ':G branch --all')
-vim.keymap.set('n', '<leader>gbd', ':G branch --delete')
-vim.keymap.set('n', '<leader>go', ':G checkout')
-vim.keymap.set('n', '<leader>gcb', ':G checkout --branch')
+vim.keymap.set('n', '<leader>g', ':G<CR>', { silent = true })
+vim.keymap.set('n', '<leader>gl', ':G log --decorate<CR>', { silent = true })
+vim.keymap.set('n', '<leader>gc', ':G commit<CR>', { silent = true })
+vim.keymap.set('n', '<leader>gi', ':G rebase -i', { silent = true })
+vim.keymap.set('n', '<leader>gb', ':G branch --all', { silent = true })
+vim.keymap.set('n', '<leader>gbd', ':G branch --delete', { silent = true })
+vim.keymap.set('n', '<leader>go', ':G checkout', { silent = true })
+vim.keymap.set('n', '<leader>gcb', ':G checkout --branch', { silent = true })
 -- Markdown Preview
 vim.keymap.set('n', 'mp', ':MarkdownPreview<CR>')
 vim.keymap.set('n', 'mt', ':MarkdownPreviewToggle<CR>')
 vim.keymap.set('n', 'ms', ':MarkdownPreviewStop<CR>')
--- follow-md-links.nvim keybinding to go back to the previous file with backspace
-vim.keymap.set('n', '<bs>', ':edit #<cr>', { silent = true })
 
 --
 -- The line beneath this is called `modeline`. See `:help modeline`

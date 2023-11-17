@@ -165,16 +165,6 @@ require('lazy').setup({
 
   -- My Plugins
   {
-    'NvChad/nvim-colorizer.lua',
-    config = function()
-      require 'colorizer'.setup({
-        user_default_options = {
-          css = true,
-        }
-      })
-    end,
-  },
-  {
     -- color picker
     'uga-rosa/ccc.nvim'
   },
@@ -371,7 +361,7 @@ vim.o.timeoutlen = 600
 vim.o.completeopt = 'menuone,noselect'
 
 -- NOTE: You should make sure your terminal supports this
-vim.o.termguicolors = true
+vim.opt.termguicolors = true
 
 -- [[ Basic Keymaps ]]
 
@@ -692,7 +682,6 @@ vim.opt.expandtab = true
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.cursorline = true
-vim.opt.hidden = true
 
 -- My Keymmaps
 

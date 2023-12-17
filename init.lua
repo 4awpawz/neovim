@@ -695,7 +695,8 @@ vim.opt.linebreak = true
 vim.opt.autoindent = true
 vim.opt.expandtab = true
 vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
+vim.o.shiftwidth = 4
 vim.opt.cursorline = true
 
 -- My Keymmaps
@@ -704,13 +705,15 @@ vim.keymap.set('i', 'jj', '<ESC>')
 -- Buffer Nav
 vim.keymap.set('n', '<M-bs>', ':bn<cr>', { silent = true })
 -- vim.keymap.set('n', 'gbn', ':bnext<CR>')
-vim.keymap.set('n', 'gbp', ':bprev<CR>', { silent = true })
+-- vim.keymap.set('n', 'gbp', ':bprev<CR>', { silent = true })
 vim.keymap.set('n', 'gbd', ':bd<CR>', { silent = true })
 vim.keymap.set('n', 'gba', ':%bd<CR>', { silent = true })
 -- follow-md-links.nvim keybinding to go back to the previous file with backspace
 vim.keymap.set('n', '<bs>', ':edit #<cr>', { silent = true })
 -- Window/Split Nav
 vim.keymap.set('n', 'gq', ':q<CR>', { silent = true })
+vim.keymap.set('n', ']w', '<C-w>w', { silent = true })
+vim.keymap.set('n', '[w', '<C-w>p', { silent = true })
 vim.keymap.set('n', 'gwo', '<C-w>o', { silent = true })
 vim.keymap.set('n', 'gwn', '<C-w>w', { silent = true })
 vim.keymap.set('n', 'gwl', '<C-w>l', { silent = true })

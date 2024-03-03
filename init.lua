@@ -224,7 +224,7 @@ require('lazy').setup({
     ft = { "markdown" },
     build = function() vim.fn["mkdp#util#install"]() end,
     config = function()
-      vim.g.mkdp_theme = 'light'
+      vim.g.mkdp_theme = 'dark'
     end
   },
 

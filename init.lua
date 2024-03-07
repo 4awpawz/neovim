@@ -752,7 +752,7 @@ vim.keymap.set('n', '<A-s>', toggleSpell, { silent = true })
 vim.keymap.set('n', '<M-c>', ':CccPick<CR>', { silent = true })
 -- Git stuff
 vim.keymap.set('n', '<leader>g', ':G<CR>', { silent = true })
-vim.keymap.set('n', '<leader>gl', ':G log --decorate<CR>', { silent = true })
+vim.keymap.set('n', '<leader>gl', ':G log --decorate --pretty=fuller --graph<CR>', { silent = true })
 vim.keymap.set('n', '<leader>gc', ':G commit<CR>', { silent = true })
 vim.keymap.set('n', '<leader>gi', ':G rebase -i', { silent = true })
 vim.keymap.set('n', '<leader>gb', ':G branch --all', { silent = true })

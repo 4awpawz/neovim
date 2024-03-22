@@ -787,7 +787,7 @@ vim.keymap.set('n', '<leader>gbd', ':G branch --delete', { silent = true })
 vim.keymap.set('n', '<leader>go', ':G checkout', { silent = true })
 vim.keymap.set('n', '<leader>gcb', ':G checkout --branch', { silent = true })
 -- Markdown Preview
-vim.keymap.set('n', 'mp', ':MarkdownPreview<CR>')
+vim.keymap.set('n', 'md', ':MarkdownPreview<CR>')
 vim.keymap.set('n', 'mt', ':MarkdownPreviewToggle<CR>')
 vim.keymap.set('n', 'ms', ':MarkdownPreviewStop<CR>')
 -- Save File

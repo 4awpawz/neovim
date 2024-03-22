@@ -790,7 +790,8 @@ vim.keymap.set('n', '<leader>gcb', ':G checkout --branch', { silent = true })
 vim.keymap.set('n', 'mp', ':MarkdownPreview<CR>')
 vim.keymap.set('n', 'mt', ':MarkdownPreviewToggle<CR>')
 vim.keymap.set('n', 'ms', ':MarkdownPreviewStop<CR>')
+-- Save File
+vim.keymap.set('n', '==', ':w<CR>')
 
---
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

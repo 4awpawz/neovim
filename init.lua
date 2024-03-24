@@ -259,6 +259,9 @@ require('lazy').setup({
             quit_on_open = false,
           },
         },
+        view = {
+          width = 45,
+        }
       }
     end
   },

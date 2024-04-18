@@ -525,7 +525,7 @@ vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = 
 -- See `:help nvim-treesitter`
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim' },
+  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim' },
 
   -- Autoinstall languages that are not installed. Defaults to false (but you can change for yourself!)
   auto_install = false,
@@ -800,6 +800,8 @@ vim.keymap.set('n', 'mt', ':MarkdownPreviewToggle<CR>')
 vim.keymap.set('n', 'ms', ':MarkdownPreviewStop<CR>')
 -- Save File
 vim.keymap.set('n', '==', ':w<CR>')
+-- Disable Python Support
+vim.g.loaded_python3_provider = 0
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

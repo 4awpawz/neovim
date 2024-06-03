@@ -174,6 +174,10 @@ require('lazy').setup({
     config = function()
       -- load the colorscheme here
       require("night-owl").setup({
+        bold = true,
+        italics = true,
+        underline = true,
+        undercurl = true,
         transparent_background = true,
       })
       vim.cmd.colorscheme("night-owl")
@@ -569,6 +573,8 @@ require('nvim-treesitter.configs').setup {
   auto_install = false,
 
   highlight = { enable = true },
+  disable = { "" },
+  additional_vim_regex_highlighting = true,
   indent = { enable = true },
   incremental_selection = {
     enable = true,

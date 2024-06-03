@@ -111,10 +111,30 @@ require('lazy').setup({
     },
   },
 
+  {
+    'windwp/nvim-autopairs',
+    -- NOTE: Requires further configuration to support more of its features.
+    -- Optional dependency
+    dependencies = { 'hrsh7th/nvim-cmp' },
+    config = function()
+      require("nvim-autopairs").setup {}
+      -- If you want to automatically add `(` after selecting a function or method
+      local cmp_autopairs = require('nvim-autopairs.completion.cmp')
+      local cmp = require('cmp')
+      cmp.event:on(
+        'confirm_done',
+        cmp_autopairs.on_confirm_done()
+      )
+    end
+  },
+
+  { 'hrsh7th/cmp-nvim-lsp-signature-help' },
+
   -- Useful plugin to show you pending keybinds.
   -- { 'folke/which-key.nvim',  opts = {} },
   {
-    -- Adds git related signs to the gutter, as well as utilities for managing changes
+    -- Adds git related signs to the gutter, as well as utilities for managing
+    -- changes
     'lewis6991/gitsigns.nvim',
     opts = {
       -- See `:help gitsigns.txt`
@@ -126,7 +146,8 @@ require('lazy').setup({
         changedelete = { text = '~' },
       },
       on_attach = function(bufnr)
-        vim.keymap.set('n', '<leader>hp', require('gitsigns').preview_hunk, { buffer = bufnr, desc = 'Preview git hunk' })
+        vim.keymap.set('n', '<leader>hp', require('gitsigns').preview_hunk,
+          { buffer = bufnr, desc = 'Preview git hunk' })
 
         -- don't override the built-in and fugitive keymaps
         local gs = package.loaded.gitsigns
@@ -145,6 +166,19 @@ require('lazy').setup({
   },
 
   -- Color Themes
+
+  {
+    "oxfist/night-owl.nvim",
+    lazy = false,    -- make sure we load this during startup if it is your main colorscheme
+    priority = 1000, -- make sure to load this before all the other start plugins
+    config = function()
+      -- load the colorscheme here
+      require("night-owl").setup({
+        transparent_background = true,
+      })
+      vim.cmd.colorscheme("night-owl")
+    end,
+  },
 
   -- {
   --   -- Theme inspired by Atom
@@ -168,16 +202,16 @@ require('lazy').setup({
   --   end,
   -- },
 
-  {
-    'folke/tokyonight.nvim',
-    lazy = false,
-    priority = 1000,
-    opts = {},
-    config = function()
-      require("tokyonight").setup({ style = "night", transparent = true })
-      vim.cmd.colorscheme 'tokyonight'
-    end,
-  },
+  -- {
+  --   'folke/tokyonight.nvim',
+  --   lazy = false,
+  --   priority = 1000,
+  --   opts = {},
+  --   config = function()
+  --     require("tokyonight").setup({ style = "night", transparent = true })
+  --     vim.cmd.colorscheme 'tokyonight'
+  --   end,
+  -- },
 
   -- {
   --   "tiagovla/tokyodark.nvim",
@@ -232,23 +266,6 @@ require('lazy').setup({
   },
 
   {
-    'windwp/nvim-autopairs',
-    -- NOTE: Requires further configuration to support more of its features.
-    -- Optional dependency
-    dependencies = { 'hrsh7th/nvim-cmp' },
-    config = function()
-      require("nvim-autopairs").setup {}
-      -- If you want to automatically add `(` after selecting a function or method
-      local cmp_autopairs = require('nvim-autopairs.completion.cmp')
-      local cmp = require('cmp')
-      cmp.event:on(
-        'confirm_done',
-        cmp_autopairs.on_confirm_done()
-      )
-    end
-  },
-
-  {
     'nvim-tree/nvim-tree.lua',
     version = "*",
     lazy = false,
@@ -268,8 +285,24 @@ require('lazy').setup({
           },
         },
         view = {
-          width = 45,
-        }
+          width = 55
+        },
+        diagnostics = {
+          enable = true,
+          show_on_dirs = false,
+          show_on_open_dirs = true,
+          debounce_delay = 50,
+          severity = {
+            min = vim.diagnostic.severity.HINT,
+            max = vim.diagnostic.severity.ERROR,
+          },
+          icons = {
+            hint = "",
+            info = "",
+            warning = "",
+            error = "",
+          },
+        },
       }
     end
   },
@@ -286,7 +319,8 @@ require('lazy').setup({
     opts = {
       options = {
         icons_enabled = true,
-        theme = 'tokyonight',
+        theme = 'night-owl',
+        -- theme = 'tokyonight',
         -- theme = 'tokyodark',
         component_separators = '|',
         section_separators = '',
@@ -350,7 +384,7 @@ require('lazy').setup({
   },
 
   -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim', opts = {} },
+  { 'numToStr/Comment.nvim',  opts = {} },
 
   -- Fuzzy Finder (files, lsp, etc)
   {
@@ -526,6 +560,7 @@ vim.keymap.set('n', '<leader>sr', require('telescope.builtin').resume, { desc = 
 
 -- [[ Configure Treesitter ]]
 -- See `:help nvim-treesitter`
+---@diagnostic disable-next-line: missing-fields
 require('nvim-treesitter.configs').setup {
   -- Add languages to be installed here that you want installed for treesitter
   ensure_installed = { 'c', 'cpp', 'go', 'lua', 'rust', 'tsx', 'javascript', 'typescript', 'vimdoc', 'vim' },
@@ -736,6 +771,7 @@ cmp.setup {
     end, { 'i', 's' }),
   },
   sources = {
+    { name = 'nvim_lsp_signature_help' },
     { name = 'luasnip' },
     { name = 'nvim_lsp' },
     { name = 'path' },

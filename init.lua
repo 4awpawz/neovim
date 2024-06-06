@@ -278,9 +278,10 @@ require('lazy').setup({
     },
     config = function()
       require("nvim-tree").setup {
+        disable_netrw = true,
         update_focused_file = {
           enable = true,
-          update_root = false,
+          update_root = true,
           ignore_list = {},
         },
         actions = {
@@ -289,7 +290,7 @@ require('lazy').setup({
           },
         },
         view = {
-          width = 55
+          width = 35
         },
         diagnostics = {
           enable = true,

@@ -259,14 +259,10 @@ require('lazy').setup({
   },
 
   {
-    'iamcco/markdown-preview.nvim',
+    "iamcco/markdown-preview.nvim",
     cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-    lazy = true,
     ft = { "markdown" },
     build = function() vim.fn["mkdp#util#install"]() end,
-    config = function()
-      vim.g.mkdp_theme = 'dark'
-    end
   },
 
   {
@@ -298,8 +294,8 @@ require('lazy').setup({
           show_on_open_dirs = true,
           debounce_delay = 50,
           severity = {
-            min = vim.diagnostic.severity.HINT,
-            max = vim.diagnostic.severity.ERROR,
+            min = vim.diagnostic.severity.hint,
+            max = vim.diagnostic.severity.error,
           },
           icons = {
             hint = "",
@@ -844,8 +840,12 @@ vim.keymap.set('n', '<leader>gcb', ':G checkout --branch', { silent = true })
 vim.keymap.set('n', 'md', ':MarkdownPreview<CR>')
 vim.keymap.set('n', 'mt', ':MarkdownPreviewToggle<CR>')
 vim.keymap.set('n', 'ms', ':MarkdownPreviewStop<CR>')
--- Save File
+--Save File
 vim.keymap.set('n', '==', ':w<CR>')
+-- Center search results in the middle of the screen
+vim.keymap.set('n', 'n', 'nzz', { silent = true })
+vim.keymap.set('n', 'N', 'Nzz', { silent = true })
+
 -- Disable python support
 vim.g.loaded_python3_provider = 0
 -- Disable pearl support

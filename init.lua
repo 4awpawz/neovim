@@ -185,6 +185,15 @@ require('lazy').setup({
   },
 
   -- {
+  --   'AlexvZyl/nordic.nvim',
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     require 'nordic'.load()
+  --   end
+  -- },
+
+  -- {
   --   -- Theme inspired by Atom
   --   'navarasu/onedark.nvim',
   --   priority = 1000,
@@ -309,7 +318,14 @@ require('lazy').setup({
   },
 
   {
-    'tpope/vim-surround'
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+      require("nvim-surround").setup({
+        -- Configuration here, or leave empty to use defaults
+      })
+    end
   },
 
   {
@@ -384,9 +400,6 @@ require('lazy').setup({
     opts = {}
   },
 
-  -- "gc" to comment visual regions/lines
-  { 'numToStr/Comment.nvim',  opts = {} },
-
   -- Fuzzy Finder (files, lsp, etc)
   {
     'nvim-telescope/telescope.nvim',
@@ -417,11 +430,54 @@ require('lazy').setup({
     build = ':TSUpdate',
   },
 
+  {
+    "rcarriga/nvim-notify",
+    opts = {
+      background_colour = "#000000",
+    },
+  },
+
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    opts = {
+      -- add any options here
+    },
+    dependencies = {
+      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+      "MunifTanjim/nui.nvim",
+      -- OPTIONAL:
+      --   `nvim-notify` is only needed, if you want to use the notification view.
+      --   If not available, we use `mini` as the fallback
+      "rcarriga/nvim-notify",
+    },
+    config = function()
+      require("noice").setup({
+        lsp = {
+          -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+          override = {
+            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+            ["vim.lsp.util.stylize_markdown"] = true,
+            ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
+          },
+        },
+        -- you can enable a preset for easier configuration
+        presets = {
+          bottom_search = true,         -- use a classic bottom cmdline for search
+          command_palette = false,      -- position the cmdline and popupmenu together
+          long_message_to_split = true, -- long messages will be sent to a split
+          inc_rename = false,           -- enables an input dialog for inc-rename.nvim
+          lsp_doc_border = true,        -- add a border to hover docs and signature help
+        },
+      })
+    end
+  },
+
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
   --       Uncomment any of the lines below to enable them.
   require 'kickstart.plugins.autoformat',
-  require 'kickstart.plugins.debug',
+  -- require 'kickstart.plugins.debug',
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    You can use this folder to prevent any conflicts with this init.lua if you're interested in keeping
@@ -788,7 +844,7 @@ end
 
 -- General Settings
 vim.cmd.packadd('cfilter')
-vim.opt.winbar = '%f'; -- show file name
+-- vim.opt.winbar = '%f'; -- show file name
 vim.opt.spelllang = 'en_us'
 vim.opt.spell = false
 vim.api.nvim_set_hl(0, 'SpellBad', { fg = "#ff0000", bg = "#ffffff", undercurl = true })
@@ -850,6 +906,8 @@ vim.keymap.set('n', 'N', 'Nzz', { silent = true })
 vim.g.loaded_python3_provider = 0
 -- Disable pearl support
 vim.g.loaded_perl_provider = 0
+-- Disable ruby support
+vim.g.loaded_ruby_provider = 0
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

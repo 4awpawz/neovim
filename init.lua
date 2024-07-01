@@ -295,7 +295,7 @@ require('lazy').setup({
           },
         },
         view = {
-          width = 35
+          width = {},
         },
         diagnostics = {
           enable = true,
